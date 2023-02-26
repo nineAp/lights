@@ -1,10 +1,12 @@
 package com.example.lights
 
+import android.app.WallpaperManager
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
 import androidx.constraintlayout.widget.ConstraintLayout
 
 class MainActivity : AppCompatActivity() {
@@ -19,9 +21,11 @@ class MainActivity : AppCompatActivity() {
         val redButton = findViewById<Button>(R.id.red_btn)
         val yellowButton = findViewById<Button>(R.id.yellow_btn)
         val greenButton = findViewById<Button>(R.id.green_btn)
-        val backButton = findViewById<Button>(R.id.back_chkbx)
+        val backButton = findViewById<CheckBox>(R.id.back_chkbx)
         val layout = findViewById<ConstraintLayout>(R.id.layout)
+        val wm = WallpaperManager.getInstance(applicationContext)
         backButton.visibility = View.INVISIBLE
+
 
         //Устанавливаю цвета кнопок
         redButton.setBackgroundColor(Color.parseColor("#fc0313"))
@@ -32,36 +36,33 @@ class MainActivity : AppCompatActivity() {
 
         //Обработчики кнопок
         redButton.setOnClickListener {
-            layout.setBackgroundColor(Color.parseColor("#fc0313"))//Установка цвета
-            backButton.visibility = View.VISIBLE//Прячу кнопку назад
-            //Прячу кнопки светофора
+            wm.setResource(R.drawable.red)
             redButton.visibility = View.INVISIBLE
             yellowButton.visibility = View.INVISIBLE
             greenButton.visibility = View.INVISIBLE
+            backButton.visibility = View.VISIBLE
         }
 
         yellowButton.setOnClickListener {
-            layout.setBackgroundColor(Color.parseColor("#fff700"))//Установка цвета
-            backButton.visibility = View.VISIBLE//Прячу кнопку назад
-            //Прячу кнопки светофора
+            wm.setResource(R.drawable.yellow)
             redButton.visibility = View.INVISIBLE
             yellowButton.visibility = View.INVISIBLE
             greenButton.visibility = View.INVISIBLE
+            backButton.visibility = View.VISIBLE
         }
 
         greenButton.setOnClickListener {
-            layout.setBackgroundColor(Color.parseColor("#0dff00"))//Установка цвета
-            backButton.visibility = View.VISIBLE//Прячу кнопку назад
-            //Прячу кнопки светофора
+            wm.setResource(R.drawable.green)
             redButton.visibility = View.INVISIBLE
             yellowButton.visibility = View.INVISIBLE
             greenButton.visibility = View.INVISIBLE
+            backButton.visibility = View.VISIBLE
         }
 
         backButton.setOnClickListener {
-            layout.setBackgroundColor(Color.parseColor("#ffffff"))//Установка цвета
-            backButton.visibility = View.INVISIBLE//Прячу кнопку назад
-            //Делаю кнопки светофора снова видимыми
+            wm.setResource(R.drawable.standart)
+            backButton.visibility = View.INVISIBLE
+            backButton.isChecked = false
             redButton.visibility = View.VISIBLE
             yellowButton.visibility = View.VISIBLE
             greenButton.visibility = View.VISIBLE
