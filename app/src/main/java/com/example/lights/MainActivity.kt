@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         val redButton = findViewById<Button>(R.id.red_btn)
         val yellowButton = findViewById<Button>(R.id.yellow_btn)
         val greenButton = findViewById<Button>(R.id.green_btn)
-        val backButton = findViewById<Button>(R.id.back_btn1)
+        val backButton = findViewById<Button>(R.id.back_chkbx)
         val layout = findViewById<ConstraintLayout>(R.id.layout)
         backButton.visibility = View.INVISIBLE
 
@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         redButton.setBackgroundColor(Color.parseColor("#fc0313"))
         yellowButton.setBackgroundColor(Color.parseColor("#fff700"))
         greenButton.setBackgroundColor(Color.parseColor("#0dff00"))
+        backButton.setTextColor(Color.parseColor("#000000"))
 
 
         //Обработчики кнопок
