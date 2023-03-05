@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         val backButton = findViewById<CheckBox>(R.id.back_chkbx)
         val layout = findViewById<ConstraintLayout>(R.id.layout)
         val wm = WallpaperManager.getInstance(applicationContext)
-        backButton.visibility = View.INVISIBLE
 
 
         //Устанавливаю цвета кнопок
@@ -37,35 +36,19 @@ class MainActivity : AppCompatActivity() {
         //Обработчики кнопок
         redButton.setOnClickListener {
             wm.setResource(R.drawable.red)
-            redButton.visibility = View.INVISIBLE
-            yellowButton.visibility = View.INVISIBLE
-            greenButton.visibility = View.INVISIBLE
-            backButton.visibility = View.VISIBLE
         }
 
         yellowButton.setOnClickListener {
             wm.setResource(R.drawable.yellow)
-            redButton.visibility = View.INVISIBLE
-            yellowButton.visibility = View.INVISIBLE
-            greenButton.visibility = View.INVISIBLE
-            backButton.visibility = View.VISIBLE
         }
 
         greenButton.setOnClickListener {
             wm.setResource(R.drawable.green)
-            redButton.visibility = View.INVISIBLE
-            yellowButton.visibility = View.INVISIBLE
-            greenButton.visibility = View.INVISIBLE
-            backButton.visibility = View.VISIBLE
         }
 
         backButton.setOnClickListener {
             wm.setResource(R.drawable.standart)
-            backButton.visibility = View.INVISIBLE
             backButton.isChecked = false
-            redButton.visibility = View.VISIBLE
-            yellowButton.visibility = View.VISIBLE
-            greenButton.visibility = View.VISIBLE
         }
 
 
